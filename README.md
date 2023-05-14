@@ -118,8 +118,6 @@ plainData, err := service.Decrypt(cipherData, associatedData)
 
 To encrypt stream of data, use the **EncryptStream(plainStream io.Reader, cipherStream io.Writer, associatedData []byte)** method of the `Encryption` service. The **plainStream** parameter is the `io.Reader` stream of data you are wishing to encrypt. The **cipherStream** parameter is the `io.Write` stream you are wishing to write the cipher data to. The **associatedData** parameter the `[]byte` representation of associated data which can be used to improve the authenticity of the data (it is not mandatory), as shown below.
 
-Encrypt call:
-
 ```go
 
 //Initilise the new encryption service using configurations as per [Usage]
