@@ -21,7 +21,6 @@ This go SDK is designed to help developers easily integrate Onqlave `Encryption 
 		- [Decrypt Stream](#decrypt-stream)
 	- [Reporting a Vulnerability](#reporting-a-vulnerability)
 
-
 ## Features
 
 - Encrypt/Decrypt piece of information
