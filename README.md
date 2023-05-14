@@ -10,16 +10,16 @@ This go SDK is designed to help developers easily integrate Onqlave `Encryption 
 
 - [Description](#description)
 - [Table of Contents](#table-of-contents)
-  - [Features](#features)
-  - [Installation](#installation)
-    - [Requirements](#requirements)
-    - [Configuration](#configuration)
-    - [Usage](#usage)
-      - [Encrypt](#encrypt)
-      - [Decrypt](#decrypt)
-	  - [EncryptStream](#encrypt-stream)
-	  - [DecryptStream](#decrypt-stream)
-  - [Reporting a Vulnerability](#reporting-a-vulnerability)
+	- [Features](#features)
+	- [Installation](#installation)
+		- [Requirements](#requirements)
+		- [Configuration](#configuration)
+		- [Usage](#usage)
+		- [Encrypt](#encrypt)
+		- [Decrypt](#decrypt)
+		- [Encrypt Stream](#encrypt-stream)
+		- [Decrypt Stream](#decrypt-stream)
+	- [Reporting a Vulnerability](#reporting-a-vulnerability)
 
 
 ## Features
@@ -73,7 +73,7 @@ credentialOption := onqlaveencryption.WithCredential(onqlavecredentials.Credenti
 })
 retryOption := onqlaveencryption.WithRetry(onqlaveconnection.RetrySettings{
 	Count:       <count>,         //Number of times to retry calling server endpoints in case of connection issue
-	WaitTime:    <wiat_time>,     //How long to wait between each retry
+	WaitTime:    <wait_time>,     //How long to wait between each retry
 	MaxWaitTime: <max_wait_time>, //How long to wait in total for operation to finish
 })
 
