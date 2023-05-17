@@ -6,8 +6,7 @@
 *.dylib
 *.in
 *.o
-examples
-examples/main.go
+examples/credential.json
 # Test binary, built with `go test -c`
 *.test
 
@@ -16,3 +15,8 @@ examples/main.go
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+examples/examples
+.vscode
+.idea
+.vscode
+.idea
