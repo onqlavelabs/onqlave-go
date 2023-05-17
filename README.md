@@ -4,7 +4,7 @@ This go SDK is designed to help developers easily integrate Onqlave `Encryption 
 [![CI](https://img.shields.io/static/v1?label=CI&message=passing&color=green?style=plastic&logo=github)](https://github.com/onqlavelabs/onqlave-go/actions)
 [![GitHub release](https://img.shields.io/github/v/release/onqlavelabs/onqlave-go.svg)](https://github.com/onqlavelabs/onqlave-go/releases)
 [![License](https://img.shields.io/github/license/onqlavelabs/onqlave-go)](https://github.com/onqlavelabs/onqlave-go/blob/main/LICENSE)
-
+[![Go Reference](https://pkg.go.dev/badge/github.com/onqlavelabs/onqlave-go.svg)](https://pkg.go.dev/github.com/onqlavelabs/onqlave-go)
 
 # Table of Contents
 
