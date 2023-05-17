@@ -2,7 +2,7 @@ name: Publish Production
 on:
   push:
     tags:
-      - 'v*'
+      - 'v0.1.*'
   pull_request:
     branches:
       - main
