@@ -55,7 +55,7 @@ jobs:
 
       - name: Extract tag version
         id: extract_tag
-        run: echo "##[set-output name=version;]VERSION=${GITHUB_REF#$"refs/tags/v"}"
+        run: echo "##[set-output name=version;]${GITHUB_REF#$"refs/tags/v"}"
 
       ############# GITHUB RELEASE ##############
       - name: "Create a GitHub release v${{ steps.extract_tag.outputs.version }}"
