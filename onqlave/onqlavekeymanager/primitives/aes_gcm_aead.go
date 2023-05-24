@@ -28,7 +28,7 @@ type AESGCMAEAD struct {
 // Assert that AESGCMAEAD implements the AEAD interface.
 var _ types.AEAD = (*AESGCMAEAD)(nil)
 
-// NewAESGCM returns an AESGCMAEAD instance, where key is the AES key with length
+// NewAESGCMAEAD NewAESGCM returns an AESGCMAEAD instance, where key is the AES key with length
 // 16 bytes (AES-128) or 32 bytes (AES-256).
 func NewAESGCMAEAD(key types.Key, randomService services.CPRNGService) (types.AEAD, error) {
 	keyData := key.Data()

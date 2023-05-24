@@ -17,7 +17,7 @@ const (
 	OnqlaveContent       string = "Content-Type"
 	OnqlaveHost          string = "ONQLAVE-HOST"
 	OnqlaveVersion       string = "ONQLAVE-VERSION"
-	OnqlaveSignature     string = "ONQLAVE-SIGANTURE"
+	OnqlaveSignature     string = "ONQLAVE-SIGNATURE"
 	OnqlaveDigest        string = "ONQLAVE-DIGEST"
 	OnqlaveArx           string = "ONQLAVE-ARX"
 	OnqlaveAgent         string = "User-Agent"

@@ -6,7 +6,7 @@ const (
 	XchaCha20Poly1305KeyVersion = 0
 )
 
-// ChaCha20Poly1305KeyOperation is a KeyOperation that generates a CHACHA20_POLY1305 key.
+// NewXChaCha20Poly1305KeyOperation ChaCha20Poly1305KeyOperation is a KeyOperation that generates a CHACHA20_POLY1305 key.
 func NewXChaCha20Poly1305KeyOperation(factory types.KeyFactory) types.KeyOperation {
 	format := &XChaChaKeyFormat{
 		KeySize: 32,

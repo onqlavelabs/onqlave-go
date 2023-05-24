@@ -17,8 +17,8 @@ type AesGcmKeyData struct {
 	Version         uint32
 }
 
-func NewAesGcmKey(id types.KeyID, opetation types.KeyOperation, data *AesGcmKeyData) types.Key {
-	return &AesGcmKey{keyID: id, operation: opetation, data: data}
+func NewAesGcmKey(id types.KeyID, operation types.KeyOperation, data *AesGcmKeyData) types.Key {
+	return &AesGcmKey{keyID: id, operation: operation, data: data}
 }
 
 func (k *AesGcmKey) KeyID() types.KeyID {
