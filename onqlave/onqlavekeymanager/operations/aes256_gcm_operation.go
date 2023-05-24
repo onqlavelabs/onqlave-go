@@ -4,7 +4,7 @@ import (
 	"github.com/onqlavelabs/onqlave-go/onqlave/onqlavekeymanager/types"
 )
 
-// NewAES256GCMKeyOperation AES256GCMKeyOperation is a KeyOperation that is used to generate an AES-GCM key with the following parameters:
+// AES256GCMKeyOperation is a KeyOperation that is used to generate an AES-GCM key with the following parameters:
 //   - Key size: 32 bytes
 func NewAES256GCMKeyOperation(factory types.KeyFactory) types.KeyOperation {
 	format := &AesGcmKeyFormat{

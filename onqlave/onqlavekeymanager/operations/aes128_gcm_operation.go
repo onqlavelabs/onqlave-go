@@ -8,7 +8,7 @@ const (
 	AESGCMKeyVersion = 0
 )
 
-// NewAES128GCMKeyOperation AES128GCMKeyOperation is a KeyOperation that is used to generate an AES-GCM key with the following parameters:
+// AES128GCMKeyOperation is a KeyOperation that is used to generate an AES-GCM key with the following parameters:
 //   - Key size: 16 bytes
 func NewAES128GCMKeyOperation(factory types.KeyFactory) types.KeyOperation {
 	format := &AesGcmKeyFormat{
@@ -25,7 +25,7 @@ type aes128GCMKeyOperation struct {
 	format  *AesGcmKeyFormat
 }
 
-// AesGcmKeyFormat Only allowing IV size in bytes = 12 and tag size in bytes = 16
+// Only allowing IV size in bytes = 12 and tag size in bytes = 16
 // Thus, accept no params.
 type AesGcmKeyFormat struct {
 	KeySize uint32
