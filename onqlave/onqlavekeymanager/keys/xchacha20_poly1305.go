@@ -16,9 +16,9 @@ type XChaCha20Poly1305KeyData struct {
 }
 
 func NewXChaCha20Poly1305Key(id types.KeyID,
-	opetation types.KeyOperation,
+	operation types.KeyOperation,
 	data *XChaCha20Poly1305KeyData) types.Key {
-	return &XChaCha20Poly1305Key{keyID: id, operation: opetation, data: data}
+	return &XChaCha20Poly1305Key{keyID: id, operation: operation, data: data}
 }
 
 func (k *XChaCha20Poly1305Key) KeyID() types.KeyID {
