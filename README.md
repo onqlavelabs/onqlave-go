@@ -101,7 +101,7 @@ cipherData, err := service.Encrypt(plainData, associatedData)
 
 
 ### Decrypt
-To encrypt data, use the **Decrypt(cipherData, associatedData []byte)** method of the `Encryption` service. The **cipherData** parameter is the `[]byte` representation of data you are wishing to decrypt (previousely encrypted). The **associatedData** parameter the `[]byte` representation of associated data which can be used to improve the authenticity of the data (it is not mandatory), as shown below.
+To decrypt data, use the **Decrypt(cipherData, associatedData []byte)** method of the `Encryption` service. The **cipherData** parameter is the `[]byte` representation of data you are wishing to decrypt (previousely encrypted). The **associatedData** parameter the `[]byte` representation of associated data which can be used to improve the authenticity of the data (it is not mandatory), as shown below.
 
 ```go
 
@@ -132,7 +132,7 @@ err := service.EncryptStream(plainStream, cipherStream, associatedData)
 
 
 ### Decrypt Stream
-To encrypt data, use the **DecryptStream(cipherStream io.Reader, plainStream io.Writer, associatedData []byte)** method of the `Encryption` service. The **cipherStream** parameter is the `io.Reader` stream of data you are wishing to decrypt and it was originally encrypted using [EncryptStream](#encrypt-stream). The **plainStream** parameter is the `io.Write` stream you are wishing to write the plain data back to. The **associatedData** parameter the `[]byte` representation of associated data which can be used to improve the authenticity of the data (it is not mandatory), as shown below.
+To decrypt data, use the **DecryptStream(cipherStream io.Reader, plainStream io.Writer, associatedData []byte)** method of the `Encryption` service. The **cipherStream** parameter is the `io.Reader` stream of data you are wishing to decrypt and it was originally encrypted using [EncryptStream](#encrypt-stream). The **plainStream** parameter is the `io.Write` stream you are wishing to write the plain data back to. The **associatedData** parameter the `[]byte` representation of associated data which can be used to improve the authenticity of the data (it is not mandatory), as shown below.
 
 ```go
 
