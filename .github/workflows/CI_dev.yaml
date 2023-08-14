@@ -1,4 +1,4 @@
-name: Development Build
+name: Development Build and Test
 on:
   pull_request:
     branches:
@@ -43,7 +43,23 @@ jobs:
         uses: golangci/golangci-lint-action@v3
 
       - name: Run tests
-        run: go test -race -vet=off `go list ./... | grep -v test | grep -v vendor`
+        run: |
+          go test -v -race -vet=off `go list ./... | grep -v test | grep -v vendor`
+        env:
+          AES_128_ACCESS_KEY: ${{ secrets.AES_128_ACCESS_KEY_DEV }}
+          AES_128_ARX_URL: ${{ secrets.AES_128_ARX_URL_DEV }}
+          AES_128_SIGNING_KEY: ${{ secrets.AES_128_SIGNING_KEY_DEV }}
+          AES_128_SECRET_KEY: ${{ secrets.AES_128_SECRET_KEY_DEV }}
+
+          AES_256_ACCESS_KEY: ${{ secrets.AES_256_ACCESS_KEY_DEV }}
+          AES_256_ARX_URL: ${{ secrets.AES_256_ARX_URL_DEV }}
+          AES_256_SIGNING_KEY: ${{ secrets.AES_256_SIGNING_KEY_DEV }}
+          AES_256_SECRET_KEY: ${{ secrets.AES_256_SECRET_KEY_DEV }}
+
+          XCHACHA_ACCESS_KEY: ${{ secrets.XCHACHA_ACCESS_KEY_DEV }}
+          XCHACHA_ARX_URL: ${{ secrets.XCHACHA_ARX_URL_DEV }}
+          XCHACHA_SIGNING_KEY: ${{ secrets.XCHACHA_SIGNING_KEY_DEV }}
+          XCHACHA_SECRET_KEY: ${{ secrets.XCHACHA_SECRET_KEY_DEV }}
 
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2

@@ -1,0 +1,73 @@
+name: Production Build and Test
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-test:
+    strategy:
+      matrix:
+        go-version: [1.20.x]
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checking out the code
+        uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: ${{ matrix.go-version }}
+
+      - name: Go version
+        run: go version
+
+      - name: Cache go modules
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/go/pkg/mod
+            ~/.cache/go-build
+          key: ${{ runner.os }}-go-${{ matrix.go-version }}-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-${{ matrix.go-version }}-
+
+      - name: Verify dependencies
+        run: go mod verify
+
+      - name: Build
+        run: go build -v ./...
+
+      - name: Run golint
+        uses: golangci/golangci-lint-action@v3
+
+      - name: Run tests
+        run: |
+          go test -v -race -vet=off `go list ./... | grep -v test | grep -v vendor`
+        env:
+          AES_128_ACCESS_KEY: ${{ secrets.AES_128_ACCESS_KEY_PROD }}
+          AES_128_ARX_URL: ${{ secrets.AES_128_ARX_URL_PROD }}
+          AES_128_SIGNING_KEY: ${{ secrets.AES_128_SIGNING_KEY_PROD }}
+          AES_128_SECRET_KEY: ${{ secrets.AES_128_SECRET_KEY_PROD }}
+
+          AES_256_ACCESS_KEY: ${{ secrets.AES_256_ACCESS_KEY_PROD }}
+          AES_256_ARX_URL: ${{ secrets.AES_256_ARX_URL_PROD }}
+          AES_256_SIGNING_KEY: ${{ secrets.AES_256_SIGNING_KEY_PROD }}
+          AES_256_SECRET_KEY: ${{ secrets.AES_256_SECRET_KEY_PROD }}
+
+          XCHACHA_ACCESS_KEY: ${{ secrets.XCHACHA_ACCESS_KEY_PROD }}
+          XCHACHA_ARX_URL: ${{ secrets.XCHACHA_ARX_URL_PROD }}
+          XCHACHA_SIGNING_KEY: ${{ secrets.XCHACHA_SIGNING_KEY_PROD }}
+          XCHACHA_SECRET_KEY: ${{ secrets.XCHACHA_SECRET_KEY_PROD }}
+
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        if: always()
+        env:
+          SLACK_CHANNEL: ci-notification
+          SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
+          SLACK_ICON: https://github.com/rtCamp.png?size=48
+          SLACK_TITLE: build-test (onqlave-go)
+          SLACK_USERNAME: ci-bot
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
